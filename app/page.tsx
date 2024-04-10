@@ -6,8 +6,6 @@ export default function Home() {
   return (
     <main>
       <h1>Hello!</h1>
-      <Link href="/about">About</Link>
-      <Card />
     </main>
   );
 }
