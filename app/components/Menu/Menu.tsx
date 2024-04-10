@@ -4,7 +4,6 @@ import React from 'react'
 const Menu = () => {
   return (
     <ul className="menu bg-base-200 w-56 rounded-box">
-        <li><Link href="/">Artisitic Monk</Link></li>
         <li>
             <details open>
             <summary>Art Galary</summary>
