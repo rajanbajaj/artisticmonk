@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Menu from "./components/Menu/Menu";
 import NavBar from "./components/NavBar/NavBar";
+import PageLayout from "./components/Page/PageLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar />
         <div className="grid grid-rows-2 grid-flow-col gap-4">
-          <div className="row-span-10">
-            <Menu />
-          </div>
           <div className="col-span-8">
-            {children}
+            <PageLayout>
+              {children}
+            </PageLayout>
           </div>
         </div>
       </body>
