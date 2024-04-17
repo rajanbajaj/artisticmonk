@@ -4,8 +4,8 @@ import Card from "./components/Card/Card";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Hello!</h1>
-    </main>
+    <div>
+      Hello!
+    </div>
   );
 }

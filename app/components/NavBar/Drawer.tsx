@@ -7,7 +7,7 @@ const Drawer = ({
     children: React.ReactNode;
   }>) => {
   return (
-    <div className="row-span-10">
+    <div className="z-50">
         <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">

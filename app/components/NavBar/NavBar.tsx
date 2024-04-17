@@ -4,7 +4,6 @@ import Drawer from './Drawer'
 
 const NavBar = () => {
   return (
-    
     <div className="navbar bg-base-200 rounded-box mb-5 mr-5">
         <div className="flex-1">
             <Link className="btn btn-ghost text-xl" href="/">Artisitic Monk</Link>
