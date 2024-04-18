@@ -1,8 +1,11 @@
+import Layout from '@/app/layouts/Layout'
 import React from 'react'
 
 const DigitalArt = () => {
   return (
-    <div>DigitalArt</div>
+    <Layout title="Digital Art">
+      <div>Here</div>
+    </Layout>
   )
 }
 

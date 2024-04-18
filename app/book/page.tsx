@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../layouts/Layout'
 
 const Books = () => {
   return (
-    <div>Books</div>
+    <Layout title="books List">
+      <div>Here</div>
+    </Layout>
   )
 }
 

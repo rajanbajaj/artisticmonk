@@ -1,8 +1,11 @@
+import Layout from '@/app/layouts/Layout'
 import React from 'react'
 
 const BookReviews = () => {
   return (
-    <div>BookReviews</div>
+    <Layout title="Book Reviews">
+      <div>Here</div>
+    </Layout>
   )
 }
 

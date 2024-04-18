@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../layouts/Layout'
 
 const Developer = () => {
   return (
-    <div>Developer</div>
+    <Layout title="Developer">
+      <div>Here</div>
+    </Layout>
   )
 }
 

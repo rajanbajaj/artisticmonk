@@ -1,8 +1,11 @@
+import Layout from '@/app/layouts/Layout'
 import React from 'react'
 
 const DeveloperStories = () => {
   return (
-    <div>DeveloperStories</div>
+    <Layout title="Dev stories">
+      <div>Here</div>
+    </Layout>
   )
 }
 
