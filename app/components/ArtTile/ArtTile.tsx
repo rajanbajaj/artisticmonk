@@ -10,8 +10,10 @@ interface ArtProps {
 
 const ArtTile = (props: ArtProps) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-        <figure><img src={props.path} alt={props.alt} /></figure>
+    <div className="card w-60 bg-base-100 shadow-xl m-2">
+        <figure className="m-2 w-50 h-50 overflow-hidden">
+          <img src={props.path} alt={props.alt} className="w-full h-full" />
+        </figure>
         <div className="card-body">
             <h2 className="card-title">{props.title}</h2>
             <p>{props.caption}</p>
