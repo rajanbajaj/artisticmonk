@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import MyThemeContext, { MyThemeContextProvider } from "./store/MyThemeContext";
-import { useContext } from "react";
+import { MyThemeContextProvider } from "./store/MyThemeContext";
 import LayoutContainer from "./layouts/LayoutContainer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Artistic Monk",
@@ -17,8 +13,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
-    useContext(MyThemeContext);
   return (
     <MyThemeContextProvider>
       <LayoutContainer>
