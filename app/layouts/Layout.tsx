@@ -1,27 +1,37 @@
-// layouts/Layout.tsx
-
-import React from 'react';
+"use client"
+import React, { useContext } from 'react';
+import MyThemeContext from '../store/MyThemeContext';
+import NavBar from '../components/NavBar/NavBar';
+import PageLayout from '../components/Page/PageLayout';
+import { Inter } from 'next/font/google';
 import Head from 'next/head';
 
 interface LayoutProps {
-  title: string;
   children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ title, children }) => {
+const inter = Inter({ subsets: ["latin"] });
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
+    useContext(MyThemeContext);
   return (
-    <div>
+    <html data-theme={themeCtx} lang="en">
       <Head>
-        <title>{title}</title>
+        <title>Artistic Monk</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <header className="bg-gray-800 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white">{title}</h1>
+      <body className={inter.className}>
+        <NavBar />
+        <div className="grid grid-rows-2 grid-flow-col gap-4">
+          <div className="col-span-8">
+            <PageLayout>
+              {children}
+            </PageLayout>
+          </div>
         </div>
-      </header>
-      <main>{children}</main>
-    </div>
+      </body>
+    </html>
   );
 };
 
