@@ -1,11 +1,11 @@
-import Layout from '@/app/layouts/Layout'
+import PageLayout from '@/app/layouts/PageLayout'
 import React from 'react'
 
 const BookReviews = () => {
   return (
-    <Layout title="Book Reviews">
+    <PageLayout title="Book Reviews">
       <div>Here</div>
-    </Layout>
+    </PageLayout>
   )
 }
 

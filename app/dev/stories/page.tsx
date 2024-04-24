@@ -1,11 +1,11 @@
-import Layout from '@/app/layouts/Layout'
+import PageLayout from '@/app/layouts/PageLayout'
 import React from 'react'
 
 const DeveloperStories = () => {
   return (
-    <Layout title="Dev stories">
+    <PageLayout title="Dev stories">
       <div>Here</div>
-    </Layout>
+    </PageLayout>
   )
 }
 

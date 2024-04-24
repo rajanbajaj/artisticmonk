@@ -23,13 +23,9 @@ const LayoutContainer: React.FC<LayoutProps> = ({ children }) => {
       </Head>
       <body className={inter.className}>
         <NavBar />
-        <div className="grid grid-rows-2 grid-flow-col gap-4">
-          <div className="col-span-8">
-            <PageLayout>
-              {children}
-            </PageLayout>
-          </div>
-        </div>
+        <PageLayout>
+          {children}
+        </PageLayout>
       </body>
     </html>
   );

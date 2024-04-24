@@ -1,9 +1,9 @@
 import React from 'react'
-import Layout from '../layouts/Layout'
+import PageLayout from '../layouts/PageLayout'
 
 const AboutPage = () => {
   return (
-    <Layout title="About Me">
+    <PageLayout title="About Me">
       <div className="py-8 px-4 sm:px-6 lg:px-8 flex flex-row-reverse gap-5">
         <div className="prose prose-lg text-gray-500 mx-auto">
           <p>
@@ -45,7 +45,7 @@ const AboutPage = () => {
         </div>
         <img src="https://avatars.githubusercontent.com/u/24255458?v=4" alt="My Image" className="rounded-full w-32 h-32 mx-auto mb-8" />
       </div>
-    </Layout>
+    </PageLayout>
   )
 }
 

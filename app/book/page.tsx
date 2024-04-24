@@ -1,11 +1,11 @@
 import React from 'react'
-import Layout from '../layouts/Layout'
+import PageLayout from '../layouts/PageLayout'
 
 const Books = () => {
   return (
-    <Layout title="books List">
+    <PageLayout title="books List">
       <div>Here</div>
-    </Layout>
+    </PageLayout>
   )
 }
 
