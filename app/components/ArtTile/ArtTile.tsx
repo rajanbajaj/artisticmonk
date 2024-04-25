@@ -12,11 +12,13 @@ const ArtTile = (props: ArtProps) => {
   return (
     <div className="card w-600 bg-base-100 shadow-xl m-2 sm:w-60">
         <figure className="m-2 w-50 h-50 overflow-hidden">
-          <img src={props.path} alt={props.alt} className="w-full h-full" />
+          <div className="w-full h-full">
+            <Image src={props.path} alt={props.alt} width={600} height={600} />
+          </div>
         </figure>
         <div className="card-body">
           <div className="card-title">{props.title}</div>
-          <p>{props.caption}</p>
+          <p className="text-center mt-2">{props.caption}</p>
         </div>
     </div>
   )

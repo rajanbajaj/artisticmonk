@@ -1,5 +1,6 @@
 "use client"
-import { createContext, ReactElement, useEffect, useState } from "react";
+import { createContext, ReactElement, useEffect, useState,JSX } from "react";
+import React from "react";
 
 const MyThemeContext = createContext({
   isDarkTheme: true,

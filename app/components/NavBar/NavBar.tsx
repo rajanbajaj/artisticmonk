@@ -3,6 +3,7 @@ import Link from "next/link"
 import React from "react"
 import Drawer from "./Drawer"
 import ThemeButton from "./ThemeButton"
+import Image from "next/image"
 
 const NavBar = () => {
   return (
@@ -17,7 +18,7 @@ const NavBar = () => {
             <Drawer>
                 <div className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                        <img alt="Profile Picture" src="https://avatars.githubusercontent.com/u/24255458?v=4" />
+                        <Image alt="Profile Picture" src="https://avatars.githubusercontent.com/u/24255458?v=4" width={50} height={50}></Image>
                     </div>
                 </div>
             </Drawer>

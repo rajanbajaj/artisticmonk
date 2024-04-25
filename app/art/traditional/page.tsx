@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "next/image"
 import ArtTile from "@/app/components/ArtTile/ArtTile"
 import PageLayout from "@/app/layouts/PageLayout"
 
