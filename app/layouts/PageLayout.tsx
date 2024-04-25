@@ -1,6 +1,6 @@
 // layouts/PageLayout.tsx
 
-import React from 'react';
+import React from "react";
 
 interface LayoutProps {
   title: string;

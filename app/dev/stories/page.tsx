@@ -1,5 +1,5 @@
-import PageLayout from '@/app/layouts/PageLayout'
-import React from 'react'
+import PageLayout from "@/app/layouts/PageLayout"
+import React from "react"
 
 const DeveloperStories = () => {
   return (

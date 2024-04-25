@@ -1,8 +1,8 @@
 "use client"
-import Link from 'next/link'
-import React from 'react'
-import Drawer from './Drawer'
-import ThemeButton from './ThemeButton'
+import Link from "next/link"
+import React from "react"
+import Drawer from "./Drawer"
+import ThemeButton from "./ThemeButton"
 
 const NavBar = () => {
   return (

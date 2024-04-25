@@ -22,7 +22,7 @@ export function MyThemeContextProvider(
 
   function initialThemeHandler(): void {
     if (isLocalStorageEmpty()) {
-      localStorage.setItem("isDarkTheme", `true`);
+      localStorage.setItem("isDarkTheme", "true");
       document!.querySelector("html")!.setAttribute("data-theme", "luxury");
       setIsDarkTheme(true);
     } else {

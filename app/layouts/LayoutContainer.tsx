@@ -1,10 +1,10 @@
 "use client"
-import React, { useContext } from 'react';
-import MyThemeContext from '../store/MyThemeContext';
-import NavBar from '../components/NavBar/NavBar';
-import PageLayout from '../components/Page/PageLayout';
-import { Inter } from 'next/font/google';
-import Head from 'next/head';
+import React, { useContext } from "react";
+import MyThemeContext from "../store/MyThemeContext";
+import NavBar from "../components/NavBar/NavBar";
+import PageLayout from "../components/Page/PageLayout";
+import { Inter } from "next/font/google";
+import Head from "next/head";
 
 interface LayoutProps {
   children: React.ReactNode;
