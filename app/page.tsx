@@ -2,6 +2,7 @@
 import { NextPage } from "next";
 import React from "react";
 import * as THREE from "three";
+import PageLayout from "./layouts/PageLayout";
 
 const Home: NextPage = () => {
   React.useEffect(() => {
@@ -15,10 +16,10 @@ const Home: NextPage = () => {
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.getElementsByClassName("image")[0].appendChild(renderer.domElement);
+    document.body.getElementsByClassName("3d-image")[0].appendChild(renderer.domElement);
 
     const texture = new THREE.TextureLoader().load("/assets/lighthouse.jpg");
-    const geometry = new THREE.BoxGeometry(4, 4, 4);
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ map: texture });
     const plane = new THREE.Mesh(geometry, material);
     scene.add(plane);
@@ -38,9 +39,9 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <>
-      <div className="image"></div>
-    </>
+    <PageLayout title="Artistic Monk">
+      <div className="3d-image w-70"></div>
+    </PageLayout>
   );
 };
 
