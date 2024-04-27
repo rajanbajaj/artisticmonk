@@ -5,6 +5,8 @@ import { postModel } from "@/app/models/Post"
 import { Post } from "@/app/models/types/Post"
 import React from "react"
 import { useSearchParams } from "next/navigation"; // Import useNavigation for client-side navigation
+import { Suspense } from "react"
+import Loading from "./loading"
 
 const DeveloperBlog = () => {
   const searchParams = useSearchParams()
@@ -14,9 +16,11 @@ const DeveloperBlog = () => {
   const post: Post | undefined = postModel.getPostById(postId);
 
   return (
-    <PageLayout title="Dev Blog">
-      <BlogPost post={post} />
-    </PageLayout>
+    <Suspense fallback={<Loading />}>
+      <PageLayout title="Dev Blog">
+        <BlogPost post={post} />
+      </PageLayout>
+    </Suspense>
   )
 }
 
