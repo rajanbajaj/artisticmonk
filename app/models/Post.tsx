@@ -53,7 +53,7 @@ export const postModel = {
     return data[0];
   },
   getPostById: (id: string | null): Post | undefined => {
-    if (id === null) return null;
+    if (id === null) return undefined;
     return data.find(post => post.id === id);
   },
   getPosts: (): Post[] => {
