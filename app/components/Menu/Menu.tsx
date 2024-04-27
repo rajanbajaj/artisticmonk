@@ -29,7 +29,7 @@ const Menu = () => {
         <details open>
           <summary>Developer Journey</summary>
           <ul>
-            <li><Link href='/dev/blog'>Blog</Link></li>        
+            <li><Link href='/dev'>Blog</Link></li>        
             <li><Link href='/dev/stories'>Stories</Link></li>
           </ul>
         </details>
