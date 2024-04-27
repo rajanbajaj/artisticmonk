@@ -1,5 +1,4 @@
 import { Post } from "./types/Post";    
-import { v4 as uuidv4 } from "uuid";
 
 const data: Array<Post> = [
   {
@@ -22,7 +21,7 @@ export const postModel = {
     return data;
   },
   addPost: async (post: Post): Promise<Post[]> => {
-    data.push({id: uuidv4(), ...post});
+    data.push(post);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(data);
