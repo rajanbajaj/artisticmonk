@@ -7,7 +7,7 @@ const Menu = () => {
       <li><Link href='/'>Home</Link></li>
       <li><Link href='/about'>About</Link></li>
       <li>
-        <details open>
+        <details>
           <summary>Art Galary</summary>
           <ul>
             <li><Link href='/art/digital'>Digital</Link></li>
@@ -16,7 +16,7 @@ const Menu = () => {
         </details>
       </li>
       <li>
-        <details open>
+        <details>
           <summary>Books</summary>
           <ul>
             <li><Link href='/book'>List</Link></li>
@@ -26,7 +26,7 @@ const Menu = () => {
       </li>
       <li><Link href='/contact'>Contact</Link></li>
       <li>
-        <details open>
+        <details>
           <summary>Developer Journey</summary>
           <ul>
             <li><Link href='/dev'>Blog</Link></li>        
@@ -35,7 +35,7 @@ const Menu = () => {
         </details>
       </li>
       <li>
-        <details open>
+        <details>
           <summary>Travel Diaries</summary>
           <ul>
             <li><Link href='/travel/blog'>Blog</Link></li>        

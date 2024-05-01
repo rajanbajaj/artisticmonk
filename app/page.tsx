@@ -1,48 +1,84 @@
 "use client"
 import { NextPage } from "next";
+import Image from "next/image";
 import React from "react";
-import * as THREE from "three";
-import PageLayout from "./layouts/PageLayout";
 
 const Home: NextPage = () => {
-  React.useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    const renderer = new THREE.WebGLRenderer();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.getElementsByClassName("3d-image")[0].appendChild(renderer.domElement);
-
-    const texture = new THREE.TextureLoader().load("/assets/lighthouse.jpg");
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    const plane = new THREE.Mesh(geometry, material);
-    scene.add(plane);
-
-    camera.position.z = 5;
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      plane.rotation.x += 0.01;
-      plane.rotation.y += 0.01;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-  }, []);
-
   return (
-    <PageLayout title="Artistic Monk">
-      <div className="3d-image w-70"></div>
-    </PageLayout>
+    <div className="font-sans">
+      {/* Header Section */}
+      <header className="py-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-xl font-bold">Artistic Monk</div>
+          <nav>
+            <ul className="flex">
+              <li className="mx-4"><a href="#about">About</a></li>
+              <li className="mx-4"><a href="#portfolio">Portfolio</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-12">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+          <p className="text-lg">Discover the beauty of art through my creations.</p>
+          <div className="mx-auto mt-8 rounded-lg shadow-lg">
+            <Image src="/assets/lighthouse.jpg" alt="Artwork" width={1080} height={720}/>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-12">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <div className="flex gap-10">
+            <div className="w-[50%]">
+              <Image alt="Profile Picture" src="https://avatars.githubusercontent.com/u/24255458?v=4" width={600} height={600}></Image>
+            </div>
+            <p className="text-lg mb-6">
+              Hi, my name is Rajan Bajaj a.k.a Artisitic Monk.
+              As an artist at heart, I love to express my creativity through sketching and
+              digital illustrations. I find that these activities help me unwind and recharge
+              after a long day of work. I&apos;m also an avid reader, always on the lookout for
+              new and exciting stories to dive into.
+              <p className="text-lg">When I&lsquo;m not creating art or reading, I enjoy hitting the open road on my bike and embarking on thrilling road trips. There&lsquo;s nothing quite like the feeling of the wind in my hair and the open road ahead.</p>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-12">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-4">Portfolio</h2>
+          {/* Portfolio Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {/* Portfolio Items */}
+            <div className="rounded-lg shadow-md overflow-hidden bg-white">
+              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} />
+            </div>
+            <div className="rounded-lg shadow-md overflow-hidden bg-white">
+              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} />
+            </div>
+            <div className="rounded-lg shadow-md overflow-hidden bg-white">
+              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-4">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2024 Artistic Monk. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
-};
+}
 
 export default Home;
