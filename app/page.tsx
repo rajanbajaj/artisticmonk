@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 const Home: NextPage = () => {
+  const imageClass = "mt-2 hover:transform hover:transition-transform hover:duration-100 hover:scale-125";
   return (
     <div className="font-sans">
       {/* Header Section */}
@@ -59,20 +60,20 @@ const Home: NextPage = () => {
             {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"> */}
             {/* Portfolio Items */}
             <div className="w-1/3 px-1">
-              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/art/bachpan.jpeg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/art/sketch-room.jpeg" alt="Artwork 3" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/art/bachpan.jpeg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/art/sketch-room.jpeg" alt="Artwork 3" width={640} height={640} className={imageClass}/>
             </div>
             <div className="w-1/3 px-1">
-              <Image src="/assets/art/doodle1.jpeg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/art/dream.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/doodle1.jpeg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/art/dream.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
             </div>
             <div className="w-1/3 px-1">
-              <Image src="/assets/art/masurao.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/art/Shiva.jpeg" alt="Artwork 3" width={640} height={640} className="mt-2"/>
-              <Image src="/assets/art/sketch-portraits.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/masurao.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/art/Shiva.jpeg" alt="Artwork 3" width={640} height={640} className={imageClass}/>
+              <Image src="/assets/art/sketch-portraits.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
             </div>
           </div>
         </div>
@@ -86,6 +87,7 @@ const Home: NextPage = () => {
         </div>
       </footer>
     </div>
+
   );
 }
 
