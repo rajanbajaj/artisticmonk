@@ -4,6 +4,9 @@ import Image from "next/image";
 import React from "react";
 
 const Home: NextPage = () => {
+  const disableRightClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+  };
   const imageClass = "mt-2 hover:transform hover:transition-transform hover:duration-100 hover:scale-125";
   return (
     <div className="font-sans">
@@ -56,7 +59,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-4">Portfolio</h2>
           {/* Portfolio Grid */}
-          <div className="flex flex-wrap px-1">
+          <div className="flex flex-wrap px-1" onContextMenu={disableRightClick}>
             {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"> */}
             {/* Portfolio Items */}
             <div className="w-1/3 px-1">
