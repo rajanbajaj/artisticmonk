@@ -24,8 +24,8 @@ const Home: NextPage = () => {
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
           <p className="text-lg">Discover the beauty of art through my creations.</p>
-          <div className="mx-auto mt-8 rounded-lg shadow-lg">
-            <Image src="/assets/lighthouse.jpg" alt="Artwork" width={1080} height={720}/>
+          <div className="content-center mx-auto mt-8 rounded-lg shadow-lg">
+            <Image src="/assets/lighthouse.jpg" alt="Artwork" width={1500} height={720}/>
           </div>
         </div>
       </section>
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
               digital illustrations. I find that these activities help me unwind and recharge
               after a long day of work. I&apos;m also an avid reader, always on the lookout for
               new and exciting stories to dive into.
-              <p className="text-lg">When I&lsquo;m not creating art or reading, I enjoy hitting the open road on my bike and embarking on thrilling road trips. There&lsquo;s nothing quite like the feeling of the wind in my hair and the open road ahead.</p>
+              When I&lsquo;m not creating art or reading, I enjoy hitting the open road on my bike and embarking on thrilling road trips. There&lsquo;s nothing quite like the feeling of the wind in my hair and the open road ahead.
             </p>
           </div>
         </div>
@@ -55,16 +55,24 @@ const Home: NextPage = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-4">Portfolio</h2>
           {/* Portfolio Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="flex flex-wrap px-1">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"> */}
             {/* Portfolio Items */}
-            <div className="rounded-lg shadow-md overflow-hidden bg-white">
-              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} />
+            <div className="w-1/3 px-1">
+              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/bachpan.jpeg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/sketch-room.jpeg" alt="Artwork 3" width={640} height={640} className="mt-2"/>
             </div>
-            <div className="rounded-lg shadow-md overflow-hidden bg-white">
-              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} />
+            <div className="w-1/3 px-1">
+              <Image src="/assets/art/doodle1.jpeg" alt="Artwork 1" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/dream.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
             </div>
-            <div className="rounded-lg shadow-md overflow-hidden bg-white">
-              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} />
+            <div className="w-1/3 px-1">
+              <Image src="/assets/art/masurao.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/Shiva.jpeg" alt="Artwork 3" width={640} height={640} className="mt-2"/>
+              <Image src="/assets/art/sketch-portraits.jpeg" alt="Artwork 2" width={640} height={640} className="mt-2"/>
             </div>
           </div>
         </div>
