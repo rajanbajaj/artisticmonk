@@ -2,6 +2,8 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import React from "react";
+import DropdownMenu from "./components/Menu/DropdownMenu";
+import ThemeButton from "./components/NavBar/ThemeButton";
 
 const Home: NextPage = () => {
   const disableRightClick = (event: React.MouseEvent) => {
@@ -13,11 +15,12 @@ const Home: NextPage = () => {
       {/* Header Section */}
       <header className="py-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold">Artistic Monk</div>
+          <DropdownMenu />
+          <ThemeButton />
           <nav>
             <ul className="flex">
-              <li className="mx-4"><a href="#about">About</a></li>
-              <li className="mx-4"><a href="#portfolio">Portfolio</a></li>
+              <li className="mx-4 hidden md:block"><a href="#about">About</a></li>
+              <li className="mx-4 hidden md:block"><a href="#portfolio">Portfolio</a></li>
             </ul>
           </nav>
         </div>
