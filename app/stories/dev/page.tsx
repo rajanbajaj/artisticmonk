@@ -1,8 +1,8 @@
 import React from "react"
-import PageLayout from "../layouts/PageLayout"
-import { Post } from "../models/types/Post";
-import { postModel } from "../models/Post";
-import Card from "../components/Card/Card";
+import PageLayout from "../../layouts/PageLayout"
+import { Post } from "../../models/types/Post";
+import { postModel } from "../../models/Post";
+import Card from "../../components/Card/Card";
 
 const Developer = () => {
   const posts: Post[] = postModel.getPosts();
