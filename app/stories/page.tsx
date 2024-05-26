@@ -12,7 +12,7 @@ interface Post {
 
 const Thoughts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(786);
 
   useEffect(() => {
     fetch("/thoughts.json")
