@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import DropdownMenu from "./components/Menu/DropdownMenu";
 import ThemeButton from "./components/NavBar/ThemeButton";
+import Animated from "./components/Animated/Animated";
 
 const Home: NextPage = () => {
   const disableRightClick = (event: React.MouseEvent) => {
@@ -16,7 +17,9 @@ const Home: NextPage = () => {
       <header className="py-4">
         <div className="container mx-auto flex justify-between items-center">
           <DropdownMenu />
-          <ThemeButton />
+          <Animated>
+            <ThemeButton />
+          </Animated>
           <nav>
             <ul className="flex">
               <li className="mx-4 hidden md:block"><a href="#about">About</a></li>
@@ -93,7 +96,6 @@ const Home: NextPage = () => {
         </div>
       </footer>
     </div>
-
   );
 }
 
