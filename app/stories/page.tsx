@@ -12,6 +12,7 @@ interface Post {
 
 const Thoughts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     fetch("/thoughts.json")
@@ -22,17 +23,22 @@ const Thoughts = () => {
       });
   }, []);
 
-
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+  
   // Split the posts into chunks of three
   const chunkSize = Math.ceil(posts.length / 3);
-  const chunks: Post[][] = posts.reduce((acc: Post[][], _, i: number) => {
+  const chunks: Post[][] = width >= 768? posts.reduce((acc: Post[][], _, i: number) => {
     if (i % chunkSize === 0) acc.push(posts.slice(i, i + chunkSize));
     return acc;
-  }, []);
+  }, []) : [posts];
 
   // Map over the chunks and wrap each chunk in a div
   const renderedPosts = chunks.map((chunk, index) => (
-    <div className="w-[30%] mx-auto" key={index}>
+    <div className="md:w-[30%] mx-auto" key={index}>
       {chunk.map(post => (
         <div className="card w-[100%] bg-base-100 shadow-xl my-4" key={post.id}>
           <div className="card-body">
