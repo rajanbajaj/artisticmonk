@@ -33,9 +33,13 @@ const DeveloperBlog = () => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <PageLayout title="Dev Blog">
-        {post ? <BlogPost post={post} /> : <p>Post not found.</p>}
-      </PageLayout>
+      {
+        post ?
+          <PageLayout title={post?.title}>
+            <BlogPost post={post} />
+          </PageLayout>
+          : <p>Post not found.</p>
+      }
     </Suspense>
   );
 };

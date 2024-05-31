@@ -10,7 +10,6 @@ const BlogPost = (props: {post: Post | undefined}) => {
   const sanitizedHTML = DOMPurify.sanitize(props.post.body);
   return (
     <div>
-      <div>{props.post.title}</div>
       <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
     </div>
   )
