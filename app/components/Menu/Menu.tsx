@@ -11,6 +11,7 @@ const Menu = () => {
           <summary>Stories</summary>
           <ul>
             <li><Link href='/stories'>Thoughts</Link></li>
+            <li><Link href='/stories/dev'>Developer Journey</Link></li>
             <li>
               <details>
                 <summary>Art Galary</summary>
@@ -26,14 +27,6 @@ const Menu = () => {
                 <ul>
                   <li><Link href='/stories/book'>List</Link></li>
                   <li><Link href='/stories/book/reviews'>Reviews</Link></li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary>Developer Journey</summary>
-                <ul>
-                  <li><Link href='/stories/dev'>Blog</Link></li>        
                 </ul>
               </details>
             </li>
