@@ -14,7 +14,7 @@ const DeveloperBlog = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    fetch("https://gist.githubusercontent.com/rajanbajaj/6b604317cf35127a835e8a157d28588d/raw/772d5b7efd8903057ce153f8c91e53a063d485ae/devBlogs.json")
+    fetch("https://gist.githubusercontent.com/rajanbajaj/6b604317cf35127a835e8a157d28588d/raw/devBlogs.json")
       .then((res) => res.json())
       .then((data) => {
         const sanitizedData = data.map((post: Post) => ({
