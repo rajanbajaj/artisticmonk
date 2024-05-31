@@ -15,7 +15,7 @@ const Thoughts = () => {
   const [width, setWidth] = useState(786);
 
   useEffect(() => {
-    fetch("https://gist.githubusercontent.com/rajanbajaj/1e318d0a171755e863e065cdb21c3ef9/raw/b801a8040fdfa50aa11ef8656af680aed700775e/thoughts.json")
+    fetch("https://gist.githubusercontent.com/rajanbajaj/1e318d0a171755e863e065cdb21c3ef9/raw/thoughts.json")
       .then((res) => res.json())
       .then((data) => {
         data.content = DOMPurify.sanitize(data.content);
