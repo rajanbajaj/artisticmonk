@@ -15,7 +15,8 @@ const Thoughts = () => {
   const [width, setWidth] = useState(786);
 
   useEffect(() => {
-    fetch("https://gist.githubusercontent.com/rajanbajaj/1e318d0a171755e863e065cdb21c3ef9/raw/thoughts.json")
+    const randomNumber = Math.floor(Math.random() * 10000000);
+    fetch(`https://gist.githubusercontent.com/rajanbajaj/1e318d0a171755e863e065cdb21c3ef9/raw/thoughts.json?i=${randomNumber}`)
       .then((res) => res.json())
       .then((data) => {
         data.content = DOMPurify.sanitize(data.content);
