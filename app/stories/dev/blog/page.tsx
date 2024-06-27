@@ -14,7 +14,8 @@ const DeveloperBlog = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    fetch("https://gist.githubusercontent.com/rajanbajaj/6b604317cf35127a835e8a157d28588d/raw/devBlogs.json")
+    const randomNumber = Math.floor(Math.random() * 10000000);
+    fetch(`https://gist.githubusercontent.com/rajanbajaj/6b604317cf35127a835e8a157d28588d/raw/devBlogs.json${randomNumber}`)
       .then((res) => res.json())
       .then((data) => {
         const sanitizedData = data.map((post: Post) => ({
