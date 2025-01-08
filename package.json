@@ -10,7 +10,12 @@
     "lint:fix": "next lint --fix ."
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.1.1",
     "@gsap/react": "^2.1.1",
+    "@mui/icons-material": "^6.3.1",
+    "@mui/material": "^6.3.1",
     "@types/three": "^0.163.0",
     "gsap": "^3.12.5",
     "isomorphic-dompurify": "^2.7.0",

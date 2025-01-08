@@ -92,7 +92,7 @@ const Home: NextPage = () => {
       {/* Footer Section */}
       <footer className="bg-gray-800 text-white py-4">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Artistic Monk. All rights reserved.</p>
+          <p>&copy; 2025 Artistic Monk. All rights reserved.</p>
         </div>
       </footer>
     </div>
