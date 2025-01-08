@@ -1,7 +1,6 @@
 "use client"
 
 import YtEmededVideoCard from "@/app/components/YtEmededVideoCard"
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import DOMPurify from "isomorphic-dompurify";
 import React, { useEffect, useState } from "react"
 
@@ -18,16 +17,22 @@ const Travel = () => {
   const [width, setWidth] = useState(786);
 
   useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  useEffect(() => {
     const randomNumber = Math.floor(Math.random() * 10000000);
     const fetchVideos = async () => {
       setLoading(true)
       try {
         fetch(`https://gist.githubusercontent.com/rajanbajaj/37fd72b0c8be11078ddab9455ea46e1f/raw/youtube-bike.json?i=${randomNumber}`)
-        .then((res) => res.json())
-        .then((data) => {
-          data.content = DOMPurify.sanitize(data.content);
-          setVideos(data)
-        });
+          .then((res) => res.json())
+          .then((data) => {
+            data.content = DOMPurify.sanitize(data.content);
+            setVideos(data)
+          });
       } catch (error) {
         setError(error)
       } finally {
