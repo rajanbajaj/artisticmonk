@@ -17,14 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <>
-        <Head>
-            <meta name="google-adsense-account" content="ca-pub-2126294825019391" />
-        </Head>
-        <MyThemeContextProvider>
+      <Head>
+        <meta name="google-adsense-account" content="ca-pub-2126294825019391" />
+      </Head>
+      <MyThemeContextProvider>
         <LayoutContainer>
-            {children}
+          {children}
         </LayoutContainer>
-        </MyThemeContextProvider>
+      </MyThemeContextProvider>
     </>
   );
 }
