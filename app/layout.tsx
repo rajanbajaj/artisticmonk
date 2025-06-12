@@ -8,6 +8,9 @@ import Head from "next/head";
 export const metadata: Metadata = {
   title: "Artistic Monk",
   description: "About me",
+  other: {
+    "google-adsense-account": "ca-pub-2126294825019391"
+  }
 };
 
 export default function RootLayout({
@@ -16,15 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Head>
-        <meta name="google-adsense-account" content="ca-pub-2126294825019391" />
-      </Head>
       <MyThemeContextProvider>
         <LayoutContainer>
           {children}
         </LayoutContainer>
       </MyThemeContextProvider>
-    </>
   );
 }

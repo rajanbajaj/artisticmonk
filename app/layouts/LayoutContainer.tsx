@@ -23,6 +23,7 @@ const LayoutContainer: React.FC<LayoutProps> = ({ children }) => {
       <Head>
         <title>Artistic Monk</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-adsense-account" content="ca-pub-2126294825019391" />
         <style>
           {`
             body {
