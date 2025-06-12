@@ -3,7 +3,6 @@ import "./globals.css";
 import { MyThemeContextProvider } from "./store/MyThemeContext";
 import LayoutContainer from "./layouts/LayoutContainer";
 import React from "react";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Artistic Monk",
@@ -19,10 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <MyThemeContextProvider>
-        <LayoutContainer>
-          {children}
-        </LayoutContainer>
-      </MyThemeContextProvider>
+    <MyThemeContextProvider>
+      <LayoutContainer>
+        {children}
+      </LayoutContainer>
+    </MyThemeContextProvider>
   );
 }
