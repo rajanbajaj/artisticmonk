@@ -3,6 +3,7 @@ import "./globals.css";
 import { MyThemeContextProvider } from "./store/MyThemeContext";
 import LayoutContainer from "./layouts/LayoutContainer";
 import React from "react";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Artistic Monk",
@@ -21,6 +22,7 @@ export default function RootLayout({
     <MyThemeContextProvider>
       <LayoutContainer>
         {children}
+        <Analytics />
       </LayoutContainer>
     </MyThemeContextProvider>
   );
