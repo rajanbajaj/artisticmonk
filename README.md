@@ -1,14 +1,94 @@
-# artisticmonk
-Personal Website Made With NextJs, TailwindCSS and DaisyUI
+# Artistic Monk
 
-# Setup
+Personal blog and portfolio website. Art gallery, book notes, dev blog,
+travel stories, and short-form thoughts — built with Next.js (App Router),
+Tailwind CSS, and DaisyUI.
+
+## Sections
+
+- Home — hero, about, and artwork portfolio grid.
+- About (`/about`) — author intro.
+- Stories (`/stories`) — `art`, `book`, `dev`, `travel` subsections, including
+  a dev blog.
+- Thoughts — short-form posts rendered as cards (content sanitized before render).
+
+## Tech stack
+
+See `package.json` for the exact dependency set. The building blocks are:
+
+- Next.js with the App Router (`app/` directory, `page.tsx` per route)
+- React with TypeScript (`strict`, see `tsconfig.json`)
+- Tailwind CSS + DaisyUI for styling and themes (see `tailwind.config.ts`)
+- MUI icons/material for UI primitives where needed
+- Vercel Analytics for traffic insights
+
+## Prerequisites
+
+- Node.js (see `docker-compose.yml` for the reference image) and npm.
+
+## Setup
+
 ```bash
-# install dependancies
-$ npm install
+# install dependencies
+npm install
 
-# start development server
-$ npm run dev
+# start development server (http://localhost:3000)
+npm run dev
 
-# build for production
-$ npm run build
+# production build + serve locally
+npm run build
+npm run start
 ```
+
+With Docker:
+
+```bash
+docker compose up
+```
+
+## Scripts
+
+Resolves from `package.json` — the authoritative list. Currently:
+
+| Script      | Purpose                                  |
+| ----------- | ---------------------------------------- |
+| `npm run dev`   | Start the development server         |
+| `npm run build` | Production build                     |
+| `npm run start` | Serve the production build           |
+| `npm run lint`  | Lint (`next lint`, see `.eslintrc.json`) |
+
+## Project structure
+
+```text
+app/               App Router pages, components, and content
+  components/      Reusable UI (one folder per component)
+  layouts/         Shared page shells
+  lib/             Constants and helpers
+  models/types/    Content shapes (e.g. Post)
+  store/           Theme context
+  about/           About page
+  stories/         art, book, dev, travel sections
+public/
+  assets/          Images and artwork
+  ads.txt          Ad-network verification
+  thoughts.json    Local thoughts fallback/data
+```
+
+Styling entry points: `app/globals.css`, `tailwind.config.ts`.
+Build/image settings: `next.config.mjs`.
+
+## Content notes
+
+- Artwork lives under `public/assets/` grouped by existing folders; reference it
+  via `next/image` with explicit dimensions and `alt` text.
+- External images must match the remote patterns in `next.config.mjs`;
+  prefer local assets for personal content.
+- Any raw HTML rendered into pages must go through the sanitizer — never inject
+  unsanitized HTML.
+- Theme behavior flows through `app/store/` and the existing theme control.
+
+## Working on this repo
+
+Coding agents: read [AGENTS.md](./AGENTS.md) first. For everyone: run lint and a
+production build before opening a PR, and check changed pages at phone and
+desktop widths in both light and dark themes.
