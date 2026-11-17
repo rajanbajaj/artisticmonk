@@ -32,7 +32,7 @@ See `package.json` for the exact dependency set. The building blocks are:
 # install dependencies
 npm install
 
-# start development server (http://localhost:3000)
+# start development server (http://localhost:5151)
 npm run dev
 
 # production build + serve locally

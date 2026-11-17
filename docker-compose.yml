@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "${PORT:-3000}:3000"
+      - "${PORT:-5151}:5151"
     command: sh -c "npm install && npm run dev"
     environment:
       - NODE_ENV=development
