@@ -4,7 +4,7 @@ name: release
 # that server. Server-side build: no registry, the Dockerfile and
 # docker-compose.prod.yml are reused verbatim. Secrets live only in the
 # server environment (or a gitignored file on the server), never here.
-# The Cloudflare tunnel already points at localhost:${PORT:-3000} on the
+# The Cloudflare tunnel already points at localhost:5151 on the
 # server, so this workflow only rebuilds and restarts the app container.
 #
 # Full release: push a version tag (e.g. v0.2.0).
@@ -34,6 +34,10 @@ jobs:
     # racing and orphaning half-renamed containers.
     runs-on: [self-hosted, artisticmonk-release]
     timeout-minutes: 30
+    # Port 3000 on the server belongs to another stack; the app serves on
+    # 5151 (Cloudflare tunnel points at localhost:5151).
+    env:
+      PORT: "5151"
     steps:
       - name: Check out release ref
         uses: actions/checkout@v5
