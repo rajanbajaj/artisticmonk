@@ -31,6 +31,13 @@
 - Develop with the `dev` script, verify with `build` then `start` (`package.json`).
 - A `docker-compose.yml` dev service exists for containerized runs; prefer the narrowest documented command for the task.
 - Images from outside this repo must satisfy the remote patterns in `next.config.mjs`; prefer local files under `public/` for personal content.
+- Production images stay minimal and secure: multi-stage builds on a small
+  pinned base, `npm ci --omit=dev` in the final stage, a non-root runtime
+  user, no secrets baked in (environment only), and a `.dockerignore`
+  excluding `node_modules`, `.git`, and `.env*` — see `Dockerfile` and
+  `docker-compose.prod.yml`. Validate compose edits with
+  `docker compose config`; a rebuilt image is done only after `build` +
+  `start` (or the release workflow) serves the homepage health check.
 
 ## 4. Testing and verification
 
