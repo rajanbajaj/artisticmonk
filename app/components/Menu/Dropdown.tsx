@@ -9,7 +9,7 @@ const Dropdown = ({
   }>) => {
   return (
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn m-1">{button}</div>
+      <div tabIndex={0} role="button" aria-label="Open navigation menu" aria-haspopup="menu" className="btn m-1 min-h-[44px] min-w-[44px]">{button}</div>
       <div tabIndex={0} className="dropdown-content z-[1] card card-compact w-64 p-2">
         {children}
       </div>

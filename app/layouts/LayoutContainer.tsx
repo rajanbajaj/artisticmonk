@@ -14,12 +14,12 @@ interface LayoutProps {
 const inter = Inter({ subsets: ["latin"] });
 
 const LayoutContainer: React.FC<LayoutProps> = ({ children }) => {
-  const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
+  const themeCtx: { isDarkTheme?: boolean; toggleThemeHandler: () => void } =
     useContext(MyThemeContext);
-  
+
   const pathName = usePathname();
   return (
-    <html data-theme={themeCtx} lang="en">
+    <html data-theme={themeCtx.isDarkTheme ? "luxury" : "light"} lang="en">
       <Head>
         <title>Artistic Monk</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />

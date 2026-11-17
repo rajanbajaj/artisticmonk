@@ -15,20 +15,26 @@ const Animated = ({
   }, []);
     
   useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".your-element",
-        snap: {
-          snapTo: "labels",
-          duration: { min: 0.2, max: 3 },
-          delay: 0.2,
-          ease: "power1.inOut"
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".your-element",
+        { x: 0 },
+        {
+          x: -10,
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+          ease: "power1.inOut",
         }
-      }
+      );
     });
-      
-    tl.to(".your-element", { x: -10, duration: 0.5 })
-      .to(".your-element", { x: 0, duration: 1 });
+    return () => ctx.revert();
   }, []);
     
   return (

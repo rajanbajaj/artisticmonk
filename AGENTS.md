@@ -66,6 +66,7 @@
 
 ### UI/UX
 
+- For any UI work, follow `UI_UX.md`; this file and the existing design system win on conflict.
 - Personal-site tone: calm, readable, image-led; keep motion subtle and respect `prefers-reduced-motion`.
 - Mobile-first with Tailwind breakpoints; narrow widths must stack or scroll, never clip or overlap.
 - Every new control must be keyboard-reachable with visible focus and a text or `aria-` label.

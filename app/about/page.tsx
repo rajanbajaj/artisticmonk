@@ -4,7 +4,7 @@ import PageLayout from "../layouts/PageLayout"
 const AboutPage = () => {
   return (
     <PageLayout title="About Me">
-      <div className="prose prose-lg text-gray-500 mx-auto md:text-xl">
+      <div className="prose prose-lg mx-auto max-w-prose text-base-content/80 md:text-xl">
         <p>
           Hello there! I&apos;m a passionate software developer with a knack for solving complex
           problems and leading DevOps teams. When I&apos;m not busy creating standard operating

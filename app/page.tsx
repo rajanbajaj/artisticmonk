@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   const disableRightClick = (event: React.MouseEvent) => {
     event.preventDefault();
   };
-  const imageClass = "mt-2 hover:transform hover:transition-transform hover:duration-100 hover:scale-125";
+  const imageClass = "mt-2 transition-transform duration-200 motion-safe:hover:scale-[1.02] motion-reduce:transform-none";
   return (
     <div className="font-sans">
       {/* Header Section */}
@@ -31,11 +31,11 @@ const Home: NextPage = () => {
 
       {/* Hero Section */}
       <section className="py-12">
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
           <p className="text-lg">Discover the beauty of art through my creations.</p>
-          <div className="content-center mx-auto mt-8 rounded-lg shadow-lg">
-            <Image src="/assets/lighthouse.jpg" alt="Artwork" width={1500} height={720}/>
+          <div className="content-center mx-auto mt-8 overflow-hidden rounded-lg shadow-lg">
+            <Image src="/assets/lighthouse.jpg" alt="Acrylic painting of a lighthouse" width={1500} height={720} priority sizes="(max-width: 768px) 100vw, 768px" className="h-auto w-full" />
           </div>
         </div>
       </section>
@@ -44,11 +44,11 @@ const Home: NextPage = () => {
       <section id="about" className="py-12">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <div className="flex gap-10">
-            <div className="w-[50%]">
-              <Image alt="Profile Picture" src="https://avatars.githubusercontent.com/u/24255458?v=4" width={600} height={600}></Image>
+          <div className="flex flex-col gap-6 md:flex-row md:gap-10">
+            <div className="w-full md:w-1/2">
+              <Image alt="Profile picture of Rajan Bajaj" src="https://avatars.githubusercontent.com/u/24255458?v=4" width={600} height={600} className="h-auto w-full rounded-lg"></Image>
             </div>
-            <p className="text-lg mb-6">
+            <p className="max-w-prose text-lg mb-6">
               Hi, my name is Rajan Bajaj a.k.a Artisitic Monk.
               As an artist at heart, I love to express my creativity through sketching and
               digital illustrations. I find that these activities help me unwind and recharge
@@ -65,34 +65,27 @@ const Home: NextPage = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-4">Portfolio</h2>
           {/* Portfolio Grid */}
-          <div className="flex flex-wrap px-1" onContextMenu={disableRightClick}>
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"> */}
+          <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3" onContextMenu={disableRightClick}>
             {/* Portfolio Items */}
-            <div className="w-1/3 px-1">
-              <Image src="/assets/shiva.png" alt="Artwork 3" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/crying-eye.jpg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/art/bachpan.jpeg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/art/sketch-room.jpeg" alt="Artwork 3" width={640} height={640} className={imageClass}/>
-            </div>
-            <div className="w-1/3 px-1">
-              <Image src="/assets/art/doodle1.jpeg" alt="Artwork 1" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/lighthouse.jpg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/art/dream.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
-            </div>
-            <div className="w-1/3 px-1">
-              <Image src="/assets/art/masurao.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/art/Shiva.jpeg" alt="Artwork 3" width={640} height={640} className={imageClass}/>
-              <Image src="/assets/art/sketch-portraits.jpeg" alt="Artwork 2" width={640} height={640} className={imageClass}/>
-            </div>
+            <Image src="/assets/shiva.png" alt="Digital illustration of Shiva" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/crying-eye.jpg" alt="Pencil sketch of a crying eye" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/bachpan.jpeg" alt="Childhood memory sketch" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/sketch-room.jpeg" alt="Sketch of a room interior" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/doodle1.jpeg" alt="Doodle illustration" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/lighthouse.jpg" alt="Acrylic painting of a lighthouse" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/dream.jpeg" alt="Dream-like surreal illustration" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/masurao.jpeg" alt="Portrait illustration" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/Shiva.jpeg" alt="Sketch of Shiva" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <Image src="/assets/art/sketch-portraits.jpeg" alt="Sheet of portrait sketches" width={640} height={640} className={imageClass} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
           </div>
         </div>
       </section>
 
 
       {/* Footer Section */}
-      <footer className="bg-gray-800 text-white py-4">
+      <footer className="bg-base-200 text-base-content py-4">
         <div className="container mx-auto text-center">
-          <p>&copy; 2025 Artistic Monk. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Artistic Monk. All rights reserved.</p>
         </div>
       </footer>
     </div>
