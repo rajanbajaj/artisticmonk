@@ -53,7 +53,7 @@ jobs:
         # Homepage is the health gate; poll until it answers 200 so a
         # broken build never hides behind a restarted container.
         run: |
-          PORT="${PORT:-3000}"
+          PORT="${PORT:-5151}"
           for i in $(seq 1 30); do
             if curl -fsS -o /dev/null "http://localhost:${PORT}/"; then
               echo "app healthy on port ${PORT}"
