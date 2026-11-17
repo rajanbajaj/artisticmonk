@@ -1,0 +1,72 @@
+name: release
+
+# Releases to the self-hosted server via a self-hosted runner installed on
+# that server. Server-side build: no registry, the Dockerfile and
+# docker-compose.prod.yml are reused verbatim. Secrets live only in the
+# server environment (or a gitignored file on the server), never here.
+# The Cloudflare tunnel already points at localhost:${PORT:-3000} on the
+# server, so this workflow only rebuilds and restarts the app container.
+#
+# Full release: push a version tag (e.g. v0.2.0).
+#
+# One-off redeploy: Actions -> release -> Run workflow, then name the ref
+# (tag, branch, or SHA; default: main).
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Tag, branch, or SHA to deploy (default: main)."
+        required: false
+        default: "main"
+
+concurrency:
+  group: release-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Self-hosted runner on the release server must carry this label.
+    # The runner executes the deploy itself, so one run at a time
+    # (concurrency above) is what keeps two `compose up` runs from
+    # racing and orphaning half-renamed containers.
+    runs-on: [self-hosted, artisticmonk-release]
+    timeout-minutes: 30
+    steps:
+      - name: Check out release ref
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.ref_name }}
+
+      - name: Show release commit
+        run: |
+          echo "ref: ${{ inputs.ref || github.ref_name }}"
+          git log -1 --format='%H %s'
+          docker compose version
+
+      - name: Build and start the app
+        run: docker compose -f docker-compose.prod.yml up --build -d
+
+      - name: Wait for the app to serve
+        # Homepage is the health gate; poll until it answers 200 so a
+        # broken build never hides behind a restarted container.
+        run: |
+          PORT="${PORT:-3000}"
+          for i in $(seq 1 30); do
+            if curl -fsS -o /dev/null "http://localhost:${PORT}/"; then
+              echo "app healthy on port ${PORT}"
+              break
+            fi
+            sleep 10
+          done
+          curl -fsS -o /dev/null "http://localhost:${PORT}/"
+
+      - name: Show stack status
+        if: always()
+        run: docker compose -f docker-compose.prod.yml ps
+
+      - name: Prune unused images
+        if: success()
+        run: docker image prune -af --filter "until=168h"

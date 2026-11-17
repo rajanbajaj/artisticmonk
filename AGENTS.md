@@ -23,6 +23,7 @@
 - Content routes: `app/about/`, `app/stories/` (one folder per section, e.g. art, book, dev, travel).
 - Static assets: `public/` (images under `public/assets/`, plus `ads.txt`, `thoughts.json`).
 - Config: `package.json`, `next.config.mjs`, `tailwind.config.ts`, `postcss.config.js`, `tsconfig.json`, `.eslintrc.json`, `docker-compose.yml`.
+- Release: `Dockerfile` + `docker-compose.prod.yml` (production image and server compose) + `.github/workflows/release.yml` (tag-triggered deploy on the self-hosted runner).
 
 ## 3. Setup and build
 
@@ -76,6 +77,7 @@
 - Never use `--no-verify` or skip the lint/type/build gates to land a change.
 - If the change has an issue, link it; check for duplicate or overlapping work first.
 - Update `README.md` (or the docs that describe the behavior) when you change setup, scripts, or content conventions.
+- Releases ship by pushing a `v*` tag (see `README.md` Releases); tags never move — a bad tag is a new tag, never a retag.
 
 ## 9. Never do
 

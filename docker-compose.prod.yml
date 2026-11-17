@@ -1,0 +1,12 @@
+# Production compose for the release server. The Cloudflare tunnel points at
+# localhost:${PORT:-3000} separately, so this file only (re)builds and
+# (re)starts the app container. Local dev stays on docker-compose.yml.
+services:
+  app:
+    build: .
+    image: artisticmonk:latest
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

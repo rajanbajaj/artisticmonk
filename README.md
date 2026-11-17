@@ -87,6 +87,18 @@ Build/image settings: `next.config.mjs`.
   unsanitized HTML.
 - Theme behavior flows through `app/store/` and the existing theme control.
 
+## Releases
+
+The site runs in Docker on a self-hosted server, reached via a Cloudflare
+tunnel that points at the app port. To release: push a version tag
+(`v*`, e.g. `v0.2.0`) — [.github/workflows/release.yml](./.github/workflows/release.yml)
+rebuilds and restarts the app on the server through a self-hosted runner
+(label `artisticmonk-release`), then health-checks the homepage. A manual
+redeploy of any ref is available under Actions → release → Run workflow.
+Production images build from [Dockerfile](./Dockerfile) via
+[docker-compose.prod.yml](./docker-compose.prod.yml); local dev stays on
+`docker-compose.yml`.
+
 ## Working on this repo
 
 Coding agents: read [AGENTS.md](./AGENTS.md) first. For everyone: run lint and a
